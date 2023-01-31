@@ -1,0 +1,5 @@
+kind create cluster --config=config.yaml
+
+kubectl cluster-info --context kind-kind-elasticsearch
+
+kind delete cluster --name=kind-elasticsearch

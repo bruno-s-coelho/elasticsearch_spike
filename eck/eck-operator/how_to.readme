@@ -1,0 +1,7 @@
+
+helm install elastic-operator ./elasticsearch_spike/eck/eck-operator -n elastic-system --create-namespace
+helm install elastic-operator . -n elastic-system --create-namespace
+
+helm list -n elastic-system
+
+helm uninstall elastic-operator -n elastic-system

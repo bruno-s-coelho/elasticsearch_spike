@@ -1,0 +1,14 @@
+helm upgrade --install --values master.yaml helm-es-multi-master .
+
+NOTES:
+1. Watch all cluster members come up.
+  $ kubectl get pods --namespace=default -l app=multi-master -w
+2. Retrieve elastic user's password.
+  $ kubectl get secrets --namespace=default multi-master-credentials -ojsonpath='{.data.password}' | base64 -d
+3. Test cluster health using Helm test.
+  $ helm --namespace=default test helm-es-multi-master
+
+
+
+
+helm uninstall helm-es-multi-master
